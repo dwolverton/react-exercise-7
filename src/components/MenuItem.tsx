@@ -8,7 +8,7 @@ interface Props {
 }
 
 function MenuItem({ dish }: Props) {
-  const { order, addItem, removeItem } = useContext(OrderContext);
+  const { addItem } = useContext(OrderContext);
   return (
     <li className="MenuItem">
       <p>Name: {dish.name}</p>
