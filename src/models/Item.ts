@@ -1,5 +1,5 @@
-export default interface Product {
-  id: number;
+export default interface Item {
+  id: string;
   name: string;
   description: string;
   calories: number;
