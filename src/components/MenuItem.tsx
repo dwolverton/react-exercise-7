@@ -1,12 +1,14 @@
+import OrderContext from "../context/OrderContext";
 import Item from "../models/Item";
 import "./MenuItem.css";
+import { useContext } from "react";
 
 interface Props {
-  dish: Item
+  dish: Item;
 }
 
-function MenuItem({dish}: Props) {
-
+function MenuItem({ dish }: Props) {
+  const { order, addItem, removeItem } = useContext(OrderContext);
   return (
     <li className="MenuItem">
       <p>Name: {dish.name}</p>
@@ -14,7 +16,13 @@ function MenuItem({dish}: Props) {
       <p>Calories: {dish.calories} </p>
       <p>Price: {dish.price} </p>
       <p>{dish.vegetarian ? "Vegetarian" : "Not Vegetarian"} </p>
-      <button>Add To Order</button>
+      <button
+        onClick={() => {
+          addItem(dish);
+        }}
+      >
+        Add To Order
+      </button>
     </li>
   );
 }
